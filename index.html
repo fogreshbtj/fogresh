@@ -791,30 +791,144 @@
             font-size: 14px;
         }
         
-        /* Hotline */
-        .hotline {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 99;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .hotline a {
-            color: #000000; /* Warna hitam */
-            text-decoration: none; /* Menghapus garis bawah */
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+       /* Fancy WhatsApp Button Styles */
+.hotline-fancy {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+}
+
+.Button-fancy {
+    background: none;
+    padding: 0;
+    border: none;
+    display: block;
+    backface-visibility: hidden;
+    width: 280px;
+    height: 60px;
+    position: relative;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 300ms;
+    cursor: pointer;
+    text-decoration: none;
+} 
+
+.Button-fancy:hover,
+.Button-fancy:focus {
+    transform: scale(1.05);
+}
+
+.Button-fancy-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%; 
+}
+
+.Button-fancy-line {
+    animation-play-state: running;
+}
+
+.Button-fancy:hover .Button-fancy-line {
+    animation-play-state: paused;
+}
+
+.Button-fancy-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    gap: 10px;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 30px;
+}
+
+/* Animations for WhatsApp Button */
+@keyframes fancy-outer-dashoffset {
+    0% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 420 420;
+    }
+    50% {
+        stroke-dasharray: 280 560;
+    }
+    100% {
+        stroke-dashoffset: 840;
+        stroke-dasharray: 420 420;
+    }
+}
+
+.Button-fancy-line--outer {
+    stroke-dasharray: 420 420;
+    stroke-dashoffset: 0;
+    animation: fancy-outer-dashoffset infinite linear 4s;
+}
+
+@keyframes fancy-inner-dashoffset {
+    0% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 420 420;
+    }
+    50% {
+        stroke-dasharray: 280 560;
+    }
+    100% {
+        stroke-dashoffset: -840;
+        stroke-dasharray: 420 420;
+    }
+}
+
+.Button-fancy-line--inner {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 420 420;
+    animation: fancy-inner-dashoffset infinite 3s;
+}
+
+/* Responsive Design for Fancy Button */
+@media (max-width: 768px) {
+    .hotline-fancy {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Button-fancy {
+        width: 100%;
+        max-width: 300px;
+        height: 55px;
+    }
+    
+    .Button-fancy-content {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Button-fancy {
+        height: 50px;
+    }
+    
+    .Button-fancy-content {
+        font-size: 13px;
+        gap: 8px;
+    }
+    
+    .Button-fancy-svg {
+        width: 100%;
+        height: 100%;
+    }
+}
         
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -1292,12 +1406,40 @@
         </div>
     </footer>
 
-    <!-- Hotline -->
-    <div class="hotline">
-        <a href="#booking-form">
-            <i class="fab fa-whatsapp" style="color: #ffffff;"></i> ATUR JADWAL SEKARANG
-        </a>
-    </div>
+    <!-- Hotline Fancy -->
+<div class="hotline-fancy">
+    <a href="#booking-form" class="Button-fancy">
+        <svg class="Button-fancy-svg" width="280" height="60" viewBox="0 0 280 60">
+            <rect 
+                class="Button-fancy-line Button-fancy-line--outer"
+                stroke-width="6"
+                stroke="#25D366" 
+                stroke-linecap="round"
+                fill="none" 
+                x="3" 
+                y="3" 
+                width="274" 
+                height="54" 
+                rx="30"
+            />
+            <rect 
+                class="Button-fancy-line Button-fancy-line--inner"
+                stroke-width="3"
+                stroke="#128C7E" 
+                stroke-linecap="round"
+                fill="none" 
+                x="3" 
+                y="3" 
+                width="274" 
+                height="54" 
+                rx="30"
+            />
+        </svg>
+        <div class="Button-fancy-content">
+            <i class="fab fa-whatsapp"></i> ATUR JADWAL SEKARANG
+        </div>
+    </a>
+</div>
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', function() {
