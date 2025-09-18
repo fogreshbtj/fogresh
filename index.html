@@ -821,18 +821,13 @@
     transform: scale(1.05);
 }
 
-.Button-fancy-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%; 
-}
-
 .Button-fancy-line {
     animation-play-state: running;
 }
+
+ .Button-fancy:hover .Button-fancy-content {
+    background: #128C7E;
+}       
 
 .Button-fancy:hover .Button-fancy-line {
     animation-play-state: paused;
@@ -850,6 +845,20 @@
     gap: 10px;
     background: #25D366;
     border-radius: 30px;
+    color: white !important;
+    font-weight: 600;
+}
+        .Button-fancy-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+    .Button-fancy-content {
+    z-index: 2; /* Di atas SVG */
 }
 
 /* Animations for WhatsApp Button */
