@@ -1304,8 +1304,9 @@
         <div class="container">
             <div class="form-container">
                 <div class="form-header">
-                    <h2>Form Pemesanan Fogresh</h2>
-                    <p>Isi formulir di bawah ini untuk mengatur jadwal kunjungan</p>
+                    <h2>GRATIS PEMESANAN</h2>
+                    <h1>TAK PERLU BAYAR</h1>
+                    <p>Anda tidak perlu membayar apapun untuk mengatur jadwal. Lakukan pembayaran setelah layanan selesai!</p>
                 </div>
                 
                 <div class="form-content">
@@ -1461,10 +1462,10 @@
             const sumber = document.getElementById('sumber').value;
             
             // Validasi form
-            if (!nama || !telepon || !alamat || !jadwal || !paket || !sumber) {
-                alert('Harap isi semua field!');
-                return;
-            }
+            //if (!nama || !telepon || !alamat || !jadwal || !paket || !sumber) {
+                //alert('Harap isi semua field!');
+                //return;
+            //}
             
             // Format tanggal dan waktu
             const jadwalDate = new Date(jadwal);
@@ -1480,7 +1481,7 @@
             });
             
             // Membuat pesan untuk WhatsApp
-            const message = `Halo Minresh, saya ingin mengatur jadwal kunjungan dengan detail sebagai berikut:
+            const message = `Halo Fogy, saya ingin mengatur jadwal kunjungan dengan detail sebagai berikut:
             
 Nama : ${nama}
 
