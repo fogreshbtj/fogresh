@@ -791,6 +791,87 @@
             font-size: 14px;
         }
         
+        /* Tombol Floating Kedua - ditempatkan di ATAS tombol pertama */
+.hotline-fancy-call {
+    position: fixed;
+    bottom: 90px; /* 90px di atas tombol hijau */
+    right: 20px;
+    z-index: 99;
+}
+
+.Button-fancy-call {
+    background: none;
+    padding: 0;
+    border: none;
+    display: block;
+    backface-visibility: hidden;
+    width: 280px;
+    height: 60px;
+    position: relative;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 300ms;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Button-fancy-call:hover {
+    transform: scale(1.05);
+}
+
+.Button-fancy-content-call {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    gap: 10px;
+    background: #3498db; /* Warna biru, beda dengan hijau */
+    border-radius: 30px;
+    color: white !important;
+    font-weight: 600;
+}
+
+.Button-fancy-content-call:hover {
+    background: #2980b9;
+}
+
+/* Animasi border untuk tombir biru */
+.Button-fancy-line--outer-call {
+    stroke-dasharray: 420 420;
+    stroke-dashoffset: 0;
+    animation: fancy-outer-dashoffset infinite linear 4s;
+    stroke: #3498db;
+}
+
+.Button-fancy-line--inner-call {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 420 420;
+    animation: fancy-inner-dashoffset infinite 3s;
+    stroke: #2980b9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hotline-fancy-call {
+        bottom: 80px;
+        right: 15px;
+        left: 15px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Button-fancy-call {
+        width: 100%;
+        max-width: 300px;
+        height: 55px;
+    }
+}
+        
        /* Fancy WhatsApp Button Styles */
 .hotline-fancy {
     position: fixed;
@@ -1415,6 +1496,41 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Tombol WhatsApp Kedua (KONSULTASI) -->
+<div class="hotline-fancy-call">
+    <a href="https://wa.me/6281361567441?text=Halo%20Fogy,%20saya%20ingin%20konsultasi%20tentang%20layanan%20Fogging" class="Button-fancy-call">
+        <svg class="Button-fancy-svg" width="280" height="60" viewBox="0 0 280 60">
+            <rect 
+                class="Button-fancy-line Button-fancy-line--outer-call"
+                stroke-width="6"
+                stroke="#25D366" 
+                stroke-linecap="round"
+                fill="none" 
+                x="3" 
+                y="3" 
+                width="274" 
+                height="54" 
+                rx="30"
+            />
+            <rect 
+                class="Button-fancy-line Button-fancy-line--inner-call"
+                stroke-width="3"
+                stroke="#4deb88" 
+                stroke-linecap="round"
+                fill="none" 
+                x="3" 
+                y="3" 
+                width="274" 
+                height="54" 
+                rx="30"
+            />
+        </svg>
+        <div class="Button-fancy-content-call" style="background: #FF9800;">
+            <i class="fab fa-whatsapp"></i> KONSULTASI GRATIS
+        </div>
+    </a>
+</div>
 
     <!-- Hotline Fancy -->
 <div class="hotline-fancy">
@@ -1435,7 +1551,7 @@
             <rect 
                 class="Button-fancy-line Button-fancy-line--inner"
                 stroke-width="3"
-                stroke="#128C7E" 
+                stroke="#4deb88" 
                 stroke-linecap="round"
                 fill="none" 
                 x="3" 
@@ -1450,6 +1566,7 @@
         </div>
     </a>
 </div>
+
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', function() {
